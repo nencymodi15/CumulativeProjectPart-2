@@ -1,0 +1,21 @@
+﻿@model CumulativeProject.Models.Teacher
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Theacher's Details</h2>
+
+<div>
+    <p> Teacher's Name: @Model.TeacherFName @Model.TeacherLName </p>
+</div>
+<div>
+    <p>Theacher's Salary : @Model.Salary </p>
+</div>
+<div>
+    <p>Theacher's Join Date : @Model.hiredate </p>
+</div>
+<div style="margin-top: 2em;"><a href="/Teacher/List" class="nav-button">Go Back</a></div>
+<div style="margin-top: 2em;"><a href="/Teacher/ConfirmDelete/@Model.TeacherId" class="delete-button">Delete Teacher</a></div>
+
+
+

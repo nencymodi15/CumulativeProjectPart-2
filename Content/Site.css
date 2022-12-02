@@ -1,0 +1,49 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.delete-button {
+    padding: 10px;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px 30px 30px 30px;
+    float: right
+}
+
+.nav-button {
+    padding: 10px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px 30px 30px 30px;
+    transition: 2s;
+}
+.nav-button:hover{
+   color:white;
+   transform: scale(2);
+}
+
+.textbox {
+    margin:1em;
+    border-radius: 40px 40px 40px 40px;
+}
+
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #777;
+    border-color: #fff
+}
