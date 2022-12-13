@@ -1,0 +1,32 @@
+﻿@model CumulativeProject.Models.Teacher
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update Teacher</h2>
+
+<div style="margin-top: 2em;"><a href="/Teacher/Show/@Model.TeacherId" class="nav-button">Go Back</a></div>
+
+<form method="post" action="/Teacher/Update/@Model.TeacherId">
+    <div>
+        <label for="TeacherFName">First Name:</label>
+        <input type="text" name="TeacherFName" id="TeacherFName" class="textbox" value="@Model.TeacherFName"/>
+    </div>
+    <div>
+        <label for="TeacherLName">Last Name:</label>
+        <input type="text" name="TeacherLName" id="TeacherLName" class="textbox" value="@Model.TeacherLName"/>
+    </div>
+    <div>
+        <label for="Salary">Amount Salary</label>
+        <input type="text" name="Salary" id="Salary" class="textbox" value="@Model.Salary"/>
+    </div>
+    <div>
+        <label for="EmployeeNumber">Employee Number</label>
+        <input type="text" name="EmployeeNumber" id="EmployeeNumber" class="textbox" value="@Model.EmployeeNumber" />
+    </div>
+    <div>
+        <input type="submit" value="Update Teacher" />
+    </div>
+
+</form>
+

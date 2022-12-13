@@ -25,6 +25,7 @@ textarea {
 }
 
 .nav-button {
+    margin-left: 1em;
     padding: 10px;
     background-color: black;
     color: white;

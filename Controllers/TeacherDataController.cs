@@ -112,9 +112,10 @@ namespace CumulativeProject.Controllers
 
         }
         /// <summary>
-        /// 
+        /// this functionis used to delete the teacher from database it takes the id as input and delete the 
+        /// teacher at that id
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">Takes teacher id integer value</param>
         [HttpPost]
         [Route("api/{TeacherData}/{DeleteTeacher}/{id}")]
         public void DeleteTeacher(int id)
@@ -134,9 +135,14 @@ namespace CumulativeProject.Controllers
             Conn.Close();
         }
         /// <summary>
-        /// 
+        /// this function takes input of type teacher class and add a teacher into the databse
+        /// For example
+        /// Teacher Name: Nency
+        /// Teacher L name: Modi
+        /// Teacher Salary: 550.0
+        /// teacher Employee Number:abc123
         /// </summary>
-        /// <param name="NewTeacher"></param>
+        /// <param name="NewTeacher">takes the input object of teacher class</param>
         [HttpPost]
 
         public void AddTeacher([FromBody] Teacher NewTeacher)
@@ -152,6 +158,42 @@ namespace CumulativeProject.Controllers
             cmd.Parameters.AddWithValue("@teacherlname", NewTeacher.TeacherLName);
             cmd.Parameters.AddWithValue("@employeenumber", NewTeacher.EmployeeNumber);
             cmd.Parameters.AddWithValue("@slary", NewTeacher.Salary);
+            cmd.Prepare();
+
+            cmd.ExecuteNonQuery();
+
+            Conn.Close();
+        }
+        /// <summary>
+        /// this function takes two inputs id from server and object of class type 
+        /// which will upadate the info from bojects whare id is equal to provided id
+        /// For example updating info form
+        /// Teacher Name: Nency
+        /// Teacher L name: Modi
+        /// Teacher Salary: 550.0
+        /// teacher Employee Number:abc123
+        ///  For example updating info to
+        /// Teacher Name: Nency
+        /// Teacher L name: Modi
+        /// Teacher Salary: 585.0
+        /// teacher Employee Number:abc123
+        /// </summary>
+        /// <param name="id">To change the value at this perticular id</param>
+        /// <param name="TeacherInfo">To change Info of teacher stored into teacher class</param>
+        public void UpdateTeacher(int id, [FromBody] Teacher TeacherInfo)
+        {
+            MySqlConnection Conn = project.AccessDatabase();
+
+            Conn.Open();
+
+            MySqlCommand cmd = Conn.CreateCommand();
+
+            cmd.CommandText = "update Teachers set teacherfname = @teacherfname, teacherlname = @teacherlname,employeenumber = @employeenumber,salary = @slary  where teacherid = @teacherid";
+            cmd.Parameters.AddWithValue("@teacherfname", TeacherInfo.TeacherFName);
+            cmd.Parameters.AddWithValue("@teacherid", id);
+            cmd.Parameters.AddWithValue("@teacherlname", TeacherInfo.TeacherLName);
+            cmd.Parameters.AddWithValue("@employeenumber", TeacherInfo.EmployeeNumber);
+            cmd.Parameters.AddWithValue("@slary", TeacherInfo.Salary);
             cmd.Prepare();
 
             cmd.ExecuteNonQuery();
